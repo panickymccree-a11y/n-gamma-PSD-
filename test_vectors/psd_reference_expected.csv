@@ -1,0 +1,5 @@
+case,N,P,S,E,baseline,polarity_sign,qtotal,qtail
+positive,150,0,7,150,8192,1,6683,3281
+negative_pre,150,8,-3,40,12000,-1,6696,5981
+max_window,1250,16,7,1234,6000,1,6671,3285
+single_pre_point,6,5,-5,-4,8192,1,896,-2

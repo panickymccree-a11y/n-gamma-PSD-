@@ -1,0 +1,12 @@
+* text=auto
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.tcl text eol=lf
+*.sv text eol=lf
+*.v text eol=lf
+*.vh text eol=lf
+*.vhd text eol=lf
+*.vhdl text eol=lf
+*.xdc text eol=lf

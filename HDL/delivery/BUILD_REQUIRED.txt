@@ -1,0 +1,6 @@
+Throughput source delivery, 2026-10-13.
+Channel batches: max 64; PSD batches: max 40; 100 us timeout.
+All 24 functional RTL regressions passed, including the real UDP throughput chain.
+Synthesis and implementation are left to the user. The assistant build was stopped.
+No new bitstream is delivered. Historical timing/CDC reports are not current acceptance results.
+Run HDL/build_psd.ps1 or HDL/scripts/build_psd.tcl, then inspect setup/hold, CDC and resource reports.
