@@ -1,20 +1,22 @@
 # MCA 与 PSD 探测系统
 
-本仓库包含单通道多道分析仪（MCA）的 FPGA/上位机源码，以及用于尾部电荷比 PSD 调试的功能。另含基于 EJ-276D 参数的合成脉冲演示
+本仓库包含单通道多道分析仪（MCA）的 FPGA/上位机源码，以及用于尾部电荷比 PSD 调试的功能。另含可独立运行的 MATLAB 连续 n/γ 合成波形生成脚本包，用于 AWG 波形准备。
 
 ## 目录
 
 - `HDL/`：Vivado 2020.2 工程、Artix-7 FPGA RTL、约束、IP 配置和 XSim 回归。
 - `Host/`：Qt 6 / C++20 Windows 上位机、协议处理、能谱/波形/PSD 页面及软件测试。
-- `Docs/`：架构、协议、PSD 模型、构建步骤和历史验证记录。
+- `Docs/`：协议、波形模型、构建步骤和历史验证记录。
 - `test_vectors/`：PSD RTL 回归使用的参考输入与期望值。
-- `demo_ngamma_psd.m`：可参数化的合成 n/γ PSD 演示脚本。
+- `MATLAB_Pulse/`：以 `main.m` 启动的连续 n/γ 波形生成脚本、集中参数配置、分量/混排图和 AWG CSV 导出。
 
 ## 构建
 
 Host 依赖 Windows、Visual Studio 2022 C++ 工具、Qt 6.8 MSVC 2022 版本、CMake 和 Ninja。先按 [`Docs/BUILD.md`](Docs/BUILD.md) 设置本机工具路径，再运行 `Host/build_and_test.cmd`。
 
 HDL 工程使用 Vivado 2020.2 和器件 `xc7a50tftg256-2`。在 Vivado 环境中设置 `VIVADO_BIN` 后，可运行 `HDL/sim/run_xsim.cmd` 做仿真；综合实现入口和参数见 `HDL/README.md` 与 `Docs/BUILD.md`。
+
+波形生成无需构建：在 MATLAB 打开并运行 [`MATLAB_Pulse/main.m`](MATLAB_Pulse/main.m)，参数统一在 [`pulse_config.m`](MATLAB_Pulse/pulse_config.m) 修改。默认 75 MSa/s、320 万点；输出保存到 `MATLAB_Pulse/output/`，不会纳入 Git。使用说明见 [`MATLAB_Pulse/README.md`](MATLAB_Pulse/README.md)。
 
 ## 说明
 
@@ -29,4 +31,5 @@ Git 忽略规则排除了本机偏好、构建目录、安装包、仿真缓存�
 - [上位机使用与构建](Host/README.md)
 - [FPGA 工程与 IP 说明](HDL/README.md)
 - [尾部电荷比 PSD 调试说明](PSD_README.md)
-- [合成 n/γ 脉冲演示模型](Docs/PSD_synthetic_demo.md)
+- [MATLAB 波形生成与 AWG 导出](MATLAB_Pulse/README.md)
+- [合成 n/γ 波形模型与适用范围](Docs/PSD_synthetic_demo.md)

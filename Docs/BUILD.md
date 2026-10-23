@@ -20,9 +20,13 @@
 
 仓库保留 RTL、约束、测试平台、参考向量和 IP 的 `.xci` 配置。Vivado 生成的库文件、网表、缓存、报告及 bitstream 均在本机重建，不纳入 Git。
 
-## MATLAB 合成脉冲演示
+## MATLAB 合成波形生成
 
-在 MATLAB 中运行 `demo_ngamma_psd.m`。脚本不依赖额外工具箱；输出写入 `demo_output/`，该目录已忽略。参数来源、假设和模型适用范围见 `Docs/PSD_synthetic_demo.md`。
+在 MATLAB 打开并运行 `MATLAB_Pulse/main.m`。脚本不依赖 Python、GUI、VBS 或额外 MATLAB 工具箱；参数集中在 `MATLAB_Pulse/pulse_config.m`。
+
+默认生成 75 MSa/s、320 万点的连续 γ/中子混排波形，输出写入 `MATLAB_Pulse/output/`，该目录已忽略。每次运行覆盖其中的同名结果，需要保留时应先复制或重命名。输出包含 MAT、AWG CSV 及其 JSON 元数据、事件顺序表、PNG 和可编辑 FIG。
+
+该脚本包替换原根目录 `demo_ngamma_psd.m`，用途为连续波形合成与 AWG 导出，不再执行原脚本中的三种 PSD 方法/FOM 对比。使用说明见 `MATLAB_Pulse/README.md`，模型和适用范围见 `Docs/PSD_synthetic_demo.md`。
 
 ## 验证记录边界
 

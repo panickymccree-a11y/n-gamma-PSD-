@@ -15,6 +15,7 @@ local_env.cmd
 # MATLAB and demo output
 .matlab_prefs/
 demo_output/
+MATLAB_Pulse/output/
 psd_page_preview.png
 demo_ngamma_psd_previous.m
 *.asv
